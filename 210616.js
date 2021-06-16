@@ -32,7 +32,7 @@ function getLocation(array, location){
         }
         //현재 문서가 가장 큰 priority를 가지고 있지만, 원했던 문서는 아니므로
         //프린트하고 순서값을 1 증가시킨다
-        else if(location === array[0].loc){
+        else if(location !== array[0].loc){
             array = array.slice(1);
             result++;
         }
