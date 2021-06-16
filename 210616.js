@@ -30,18 +30,19 @@ function getLocation(array, location){
         if(getMaxNum(array) !== array[0].num){
             array = array.slice(1).concat(array.slice(0, 1));
         }
-        //현재 문서가 가장 큰 priority를 가지고 있고, 그것이 원했던 문서라면 반환한다
-        else if(location === array[0].loc){
-            return result;
-        }
         //현재 문서가 가장 큰 priority를 가지고 있지만, 원했던 문서는 아니므로
         //프린트하고 순서값을 1 증가시킨다
-        else{
+        else if(location === array[0].loc){
             array = array.slice(1);
             result++;
         }
+        //현재 문서가 가장 큰 priority를 가지고 있고, 그것이 원했던 문서라면 반환한다
+        else{
+            return result;
+        }
     }
-    return result;
+    //루프를 빠져나왔다면 찾지 못한것이므로 -1을 반환
+    return -1;
 }
 
 function solution(priorities, location) {
